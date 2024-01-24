@@ -1,0 +1,91 @@
+.Bulit-content-main {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.bulit-title h5 {
+  font-size: 16px;
+  color: #8c8c8c;
+  margin-bottom: 0;
+}
+
+.bulit-title h4 {
+  font-weight: 700;
+  color: #141414;
+  font-size: 20px;
+}
+
+.bulit-title p {
+  font-size: 16px;
+  color: #8c8c8c;
+}
+
+.bulit-img img {
+  width: 220px;
+  height: 220px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12);
+}
+
+.a-tag a {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.a-tag {
+  color: #1890ff;
+  font-weight: 600;
+}
+
+.main-work-content {
+  background-image: url(../../../../assets/popoverImage/info-card-2.jpg);
+  padding: 24px;
+  margin-right: 0;
+  border-radius: 8px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 28vh;
+}
+
+.main-work-content h5 {
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+}
+
+.main-work-content p {
+  font-size: 16px;
+  color: #fff;
+}
+
+.a-tags a {
+  color: #fff;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .Bulit-content-main {
+    flex-flow: column-reverse;
+  }
+
+  .bulit-img {
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .bulit-title {
+    text-align: center;
+  }
+  .a-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

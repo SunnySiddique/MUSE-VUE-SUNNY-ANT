@@ -1,0 +1,61 @@
+.popover-main {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 20px;
+}
+
+.img img {
+  width: 36px;
+  height: 36px;
+  background-color: #fafafa;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popover-content .h-title {
+  color: rgba(0, 0, 0, 0.65);
+  transition: all 0.3s;
+  font-size: 15px;
+  font-weight: 700;
+  color: #141414;
+  cursor: pointer;
+}
+
+.popover-content .h-title:hover {
+  color: #1890ff;
+}
+
+.icon-content {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.icon-content p {
+  display: flex;
+  align-items: center;
+}
+
+.icon-content span {
+  color: #8c8c8c;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 600;
+}
+
+.popover-main .spotifay-icon span {
+  width: 36px;
+  height: 36px;
+  background-color: #fafafa;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ant-popover-arrow {
+  display: none !important;
+}

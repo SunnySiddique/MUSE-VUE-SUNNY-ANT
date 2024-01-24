@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: open sans, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #fafafa !important;
+}
+
+h6 {
+  font-weight: 700;
+  color: #141414;
+  font-size: 16px;
+}
+
+.section {
+  margin-top: 50px;
+}
+
+/* SideMen section */
+
+.ant-layout .ant-layout-sider-children {
+  background-color: #fafafa;
+  padding: 14px;
+}
+
+.ant-layout .ant-layout-sider-children ul {
+  background-color: transparent;
+  color: black !important;
+}
+
+.ant-menu-dark
+  .ant-menu-item:not(.ant-menu-item-selected):not(
+    .ant-menu-submenu-selected
+  ):hover {
+  color: black;
+}
+
+.re:hover {
+  transition: box-shadow 0.1s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.ant-menu-light .ant-menu-item-selected {
+  background-color: #fff !important;
+  color: black;
+  box-shadow: 0 20px 27px rgba(0, 0, 0, 0.05);
+}
+
+.ant-menu-light.ant-menu-inline .ant-menu-item {
+  padding: 26px;
+}
+
+.ant-menu-light.ant-menu-root.ant-menu-inline {
+  border-inline-end: none;
+}
+
+.ant-menu-item:not(.ant-menu-item-selected):hover {
+  background-color: transparent !important;
+}
+
+.ant-menu-title-content {
+  color: #141414;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.demo-logo-vertical {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  margin-top: 30px;
+}
+
+/* SideMen section */
+
+.ant-layout .ant-layout-sider {
+  width: 272px !important;
+  max-width: 272px !important;
+  min-width: 272px !important;
+  background-color: #fff;
+  /* position: fixed; */
+}
+
+.content {
+  padding: 24px;
+  margin-left: 175px;
+}
+
+.three-dot {
+  display: none;
+}
+
+.main-content {
+  padding-left: 80px;
+}
+
+@media (max-width: 768px) {
+  .sidemenu {
+    display: none;
+  }
+  .content {
+    margin-left: 0px;
+  }
+  .main-content {
+    padding: 0px;
+  }
+  .three-dot {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 20px 27px rgba(0, 0, 0, 0.05);
+}
+
+.ant-card .ant-card-body {
+  padding: 0px;
+}
+
+/* overViwe */
+
+.apexcharts-legend.apx-legend-position-bottom.apexcharts-align-center {
+  display: none !important;
+}
+
+.apexcharts-toolbar {
+  display: none !important;
+}
+
+.apexcharts-xaxis-tick {
+  display: none !important;
+}

@@ -1,0 +1,251 @@
+.drawer-main {
+}
+
+.drawer-content h6 {
+  font-weight: 600;
+  color: #141414;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.drawer-content p {
+  font-size: 14px;
+  color: #8c8c8c;
+}
+
+.Sidebar-color h6 {
+  font-weight: 600;
+  color: #141414;
+  margin-bottom: 0;
+  margin-bottom: 8px;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+.frist-color {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+  margin-right: 4px;
+  border: 2px solid #fff;
+  background-color: #1890ff;
+  cursor: pointer;
+}
+
+.Sidebar-colors-main {
+  display: flex;
+  align-items: center;
+}
+
+.SideNav-content h6 {
+  font-weight: 600;
+  color: #141414;
+  margin-bottom: 0;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.SideNav-content p {
+  color: #8c8c8c;
+  font-size: 14px;
+}
+
+.button-main .button-1 button {
+  border: transparent;
+  padding: 0px 26px;
+  height: 44px;
+  border-radius: 4px;
+  font-weight: 700;
+  color: #fff;
+  background: #1890ff;
+  cursor: pointer;
+}
+
+.button-main .button-2 button {
+  border: transparent;
+  padding: 0px 26px;
+  height: 44px;
+  border-radius: 4px;
+  font-weight: 700;
+  color: #2a2a2a;
+  background: #fff;
+  border: 1px solid #8c8c8c;
+  cursor: pointer;
+}
+
+.button-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.Navbar-Fixed h6 {
+  font-weight: 600;
+  color: #141414;
+  margin-bottom: 0;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.buttons span {
+  margin: 5px 0px;
+}
+
+.buttons span button {
+  border: transparent;
+  height: 40px;
+  padding: 0 15px;
+  font-weight: 700;
+  font-weight: 600;
+  font-size: 12px;
+  background-color: #141414;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+  border-radius: 6px;
+  color: #fff;
+  width: 100%;
+  margin: 10px 0px;
+}
+
+.buttons .blue-button button {
+  background-color: #1890ff;
+  border: transparent;
+  transition: 0.3s;
+  cursor: pointer;
+  margin: 10px 0px;
+}
+
+.buttons .blue-button button:hover {
+  color: #fff;
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.buttons .transparent-button button {
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  color: #141414;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.buttons .transparent-button button:hover {
+  border-color: #40a9ff;
+  color: #1890ff;
+}
+
+.main-staer {
+  display: inline-block;
+  /* border: 1px solid rgba(27, 31, 35, 0.2); */
+  /* padding: 20px; */
+}
+
+.main-staer .star {
+  background-color: #eff3f6;
+  background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
+  border: 1px solid rgba(27, 31, 35, 0.2);
+  color: #24292e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 3px 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  transition: 0.4s;
+}
+
+.star-con {
+  background-color: #fff;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+  border-top: 1px solid rgba(27, 31, 35, 0.2);
+  border-right: 1px solid rgba(27, 31, 35, 0.2);
+  border-bottom: 1px solid rgba(27, 31, 35, 0.2);
+  color: #24292e;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 3px 16px;
+  text-decoration: none !important;
+  vertical-align: middle;
+}
+
+.main-staer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-staer .star:hover {
+  background-color: #e6ebf1;
+  background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);
+  background-position: 0 -0.5em;
+  background-repeat: repeat-x;
+  border-color: rgba(27, 31, 35, 0.35);
+  text-decoration: none !important;
+  color: #40a9ff;
+}
+
+.anticon svg {
+  cursor: pointer;
+}
+
+.share-button button {
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 6px;
+  border: transparent;
+  background-color: #141414;
+  color: #fff;
+  border: transparent;
+}
+
+.share-button button span svg {
+  fill: #fff;
+}
+
+.share-button button span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.share-content {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.share-content h6 {
+  font-weight: 600;
+  color: #141414;
+  font-size: 16px;
+}
+
+.share-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  cursor: pointer;
+}
+
+.share-button button:hover {
+  /* background-color: #fff; */
+  border-color: #40a9ff;
+  cursor: pointer;
+}

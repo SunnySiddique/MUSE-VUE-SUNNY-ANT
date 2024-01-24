@@ -1,0 +1,69 @@
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.ant-input::placeholder {
+  font-weight: 600;
+  color: #8c8c8c;
+}
+
+.SignIn-content span {
+  color: #8c8c8c;
+  font-weight: 600;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.inputs-main {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.anticon svg {
+  display: inline-block;
+  width: 20px;
+  height: 18px;
+  fill: #111827;
+  cursor: pointer;
+}
+
+.Notification-Icon {
+  cursor: pointer;
+}
+
+.header-content .frist-content {
+  color: #8c8c8c;
+}
+
+.second-content {
+  color: #141414;
+}
+
+.three-content {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  margin-top: 5px;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.three-dot {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .three-dot {
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-content {
+    margin-bottom: 20px;
+  }
+}

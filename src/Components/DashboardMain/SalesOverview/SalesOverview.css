@@ -1,0 +1,51 @@
+.main-chart-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.salse-content h6 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #141414;
+}
+
+.salse-content p {
+  font-weight: 600;
+  color: #8c8c8c;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.salse-content small {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  margin-left: 10px;
+  color: #52c41a;
+}
+
+.border-color {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.blue-color {
+  width: 20px;
+  height: 4px;
+  border-radius: 5px;
+  background-color: #1890ff;
+}
+.pink-color {
+  width: 20px;
+  height: 4px;
+  border-radius: 5px;
+  background-color: #b37feb;
+}
+
+.border-color span {
+  font-weight: 600;
+  color: #8c8c8c;
+  font-size: 14px;
+}

@@ -1,7 +1,6 @@
 .Bulit-content-main {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
 }
 
 .bulit-title h5 {

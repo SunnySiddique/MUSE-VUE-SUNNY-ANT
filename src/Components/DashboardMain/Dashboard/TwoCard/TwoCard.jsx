@@ -48,7 +48,7 @@ const TwoCard = () => {
         >
           <Card
             className="box-shadow"
-            style={{ padding: "24px", height: "297px" }}
+            style={{ padding: "24px", height: "298px" }}
           >
             <div className="main-work-content">
               <div className="wor-title">

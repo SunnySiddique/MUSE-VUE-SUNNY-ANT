@@ -135,3 +135,9 @@ h6 {
 .apexcharts-xaxis-tick {
   display: none !important;
 }
+
+/* Radio buttons */
+
+.ant-radio-button-wrapper {
+  font-weight: 700;
+}

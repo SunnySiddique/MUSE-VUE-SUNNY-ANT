@@ -65,12 +65,14 @@ const Projects = () => {
           xs={24}
         >
           <Card className="box-shadow">
-            <div className="TimeLines" style={{padding: "24px"}}>
+            <div className="TimeLines" style={{ padding: "24px" }}>
               <div className="orders-content">
                 <h6>Orders History</h6>
-                <p>this month <small>+20%</small></p>
+                <p>
+                  this month <small>+20%</small>
+                </p>
               </div>
-            <TimeLines />
+              <TimeLines />
             </div>
           </Card>
         </Col>

@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: open sans, Helvetica, Arial, sans-serif;
+  list-style: none;
 }
 
 body {
@@ -12,7 +13,7 @@ body {
 h6 {
   font-weight: 700;
   color: #141414;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .section {
@@ -140,4 +141,45 @@ h6 {
 
 .ant-radio-button-wrapper {
   font-weight: 700;
+  font-size: 12px;
+}
+
+.inputs {
+  margin-top: 0px !important;
+}
+
+.ant-drawer .ant-drawer-content {
+  display: flex;
+  flex-direction: column;
+  width: 36%;
+  height: 100%;
+  overflow: auto;
+  background: #ffffff;
+  pointer-events: auto;
+}
+
+@media (max-width: 600px) {
+  .SignIn-content {
+    display: none;
+  }
+}
+
+.ant-drawer .ant-drawer-content {
+  width: 100% !important;
+}
+
+/* form */
+
+.ant-form-item .ant-form-item-explain-error {
+  display: flex;
+  align-items: center;
+  margin-bottom: 17px;
+  margin-top: 3px;
+}
+
+.ant-spin-nested-loading > div > .ant-spin {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

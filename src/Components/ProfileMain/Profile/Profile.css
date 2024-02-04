@@ -1,0 +1,64 @@
+.profile-main {
+  background-image: url(../../../assets/popoverImage/bg-profile.jpg);
+  height: 300px;
+  border-radius: 12px;
+  box-shadow: 0 20px 27px rgba(0, 0, 0, 0.05);
+  background-size: cover;
+  background-position: 50%;
+  margin-top: -11.8px;
+  padding: 24px;
+}
+
+.profile-content-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.profile-img img {
+  width: 74px;
+  height: 74px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  margin: 0;
+}
+
+.profile-img span h4 {
+  font-weight: 600;
+  color: #141414;
+  font-size: 24px;
+}
+
+.profile-img span p {
+  font-weight: 600;
+  color: #8c8c8c;
+  margin-bottom: 0;
+}
+
+.profile-img {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-card {
+  position: relative;
+}
+
+.card-profile {
+  position: absolute;
+  width: 94%;
+  left: 3%;
+  bottom: -52px;
+}
+
+.main-switchs {
+  margin-bottom: 36px;
+}
+
+@media (max-width: 768px) {
+  .profile-img {
+    margin-bottom: 20px;
+  }
+}

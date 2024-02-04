@@ -1,0 +1,146 @@
+.edit-delete-second-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.edit-delete-main {
+  box-shadow: none;
+  background-color: #fafafa;
+  border: 1px solid #f5f5f5;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 20px;
+}
+
+.edit-delete-icon-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edit-title .title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #141414;
+  margin-bottom: 14px;
+}
+
+.edit-delete-icon button {
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.edit-delete-icon span {
+  color: #f5222d;
+  font-weight: 600;
+}
+
+/* user Details */
+
+.user-details-main {
+}
+
+.user-detail {
+  margin-bottom: 10px;
+}
+
+.user-detail span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8c8c8c;
+}
+
+.user-detail .user-detail-one::after {
+  content: ":";
+  color: #8c8c8c;
+  margin: 0 8px 0 2px;
+}
+
+.user-detail .antitem {
+  font-size: 13px;
+  font-weight: 600;
+  color: #141414;
+}
+
+/* transaction section */
+
+.transactions-main {
+}
+
+.transactions-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.transaction-cleander {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.transaction-cleander span {
+  font-weight: 700;
+  color: #8c8c8c;
+  font-size: 14px;
+}
+
+.newst-main-section {
+}
+
+.newst-title h6 {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8c8c8c;
+  margin: 25px 0;
+}
+
+.netfix-content {
+}
+
+.netfix-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.main-netfix {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.netfix-content h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #141414;
+}
+
+.small-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8c8c8c;
+}
+
+.netfix-title .icon-bg {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 50%;
+  background-color: rgb(254, 233, 234);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dorol-titles {
+  color: #f5222d;
+  font-size: 16px;
+  font-weight: 700;
+}

@@ -1,0 +1,107 @@
+.profile-project-title p {
+  font-weight: 600;
+  color: #8c8c8c;
+  margin-bottom: 0;
+}
+
+.profile-projects-img-main {
+  margin-top: 20px;
+}
+
+.profile-projects-img img {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12);
+}
+
+.profile-title-tag {
+  font-weight: 600;
+  color: #8c8c8c;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.profile-content h5 {
+  font-weight: 600;
+  color: #141414;
+  font-size: 20px;
+}
+
+.profile-content p {
+  font-weight: 600;
+  color: #8c8c8c;
+  font-size: 14px;
+}
+
+.profile-img-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.profile-trnasparent-button button span {
+  font-size: 12px !important;
+  font-weight: 500;
+}
+
+.ant-upload-wrapper.ant-upload-picture-card-wrapper
+  .ant-upload.ant-upload-select {
+  width: 100%;
+  height: 68vh;
+  /* margin-inline-end: 8px; */
+  /* margin-bottom: 8px; */
+  text-align: center;
+  vertical-align: top;
+  /* background-color: rgba(0, 0, 0, 0.02); */
+  border: 1px dashed #d9d9d9;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: border-color 0.3s;
+}
+
+/* upload section */
+
+/* .upload-main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.border {
+  border: 1px dotted gray;
+  cursor: pointer;
+}
+
+.second-upload-main {
+} */
+
+.upload-title {
+  font-weight: 600;
+  color: #142738;
+  text-align: center;
+}
+
+.upload-icon {
+  text-align: center;
+}
+
+.upload-button {
+  border: 2px dotted rgb(214, 213, 213);
+  background: transparent;
+  padding: 10px;
+  width: 100% !important;
+  height: 42vh;
+  margin-top: 21px;
+  cursor: pointer;
+  border-radius: 9px;
+}
+
+.ant-upload-wrapper .ant-upload-select {
+  width: 100% !important;
+}

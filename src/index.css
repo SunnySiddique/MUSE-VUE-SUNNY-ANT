@@ -99,22 +99,6 @@ h6 {
   padding-left: 80px;
 }
 
-@media (max-width: 768px) {
-  .sidemenu {
-    display: none;
-  }
-  .content {
-    margin-left: 0px;
-  }
-  .main-content {
-    padding: 0px;
-  }
-  .three-dot {
-    display: block;
-    cursor: pointer;
-  }
-}
-
 .box-shadow {
   box-shadow: 0 20px 27px rgba(0, 0, 0, 0.05);
 }
@@ -197,4 +181,20 @@ h6 {
 
 :where(.css-dev-only-do-not-override-1qhpsh8).ant-drawer .ant-drawer-body {
   padding: 0px !important;
+}
+
+@media (max-width: 768px) {
+  .sidemenu {
+    display: none;
+  }
+  .content {
+    margin-left: 0px;
+  }
+  .main-content {
+    padding: 0px;
+  }
+  .three-dot {
+    display: block;
+    cursor: pointer;
+  }
 }

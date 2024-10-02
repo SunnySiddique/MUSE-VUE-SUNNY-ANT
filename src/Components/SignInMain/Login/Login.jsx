@@ -26,7 +26,6 @@ const LogIn = () => {
     const emptyFields = [];
     if (!formData.email) emptyFields.push("Email");
     if (!formData.password) emptyFields.push("Password");
-    if (!formData.confirmPassword) emptyFields.push("Confirm Password");
 
     // Show error message for empty fields
     if (emptyFields.length > 0) {
@@ -123,15 +122,7 @@ const LogIn = () => {
                     }}
                     onFinish={onFinish}
                   >
-                    <Form.Item
-                      name="email"
-                      rules={[
-                        {
-                          required: true,
-                          message: "Please input your email!",
-                        },
-                      ]}
-                    >
+                    <Form.Item name="email">
                       <Input
                         onChange={handleChange}
                         value={formData.email}
@@ -140,20 +131,13 @@ const LogIn = () => {
                         name="email"
                       />
                     </Form.Item>
-                    <Form.Item
-                      name="password"
-                      rules={[
-                        {
-                          required: true,
-                          message: "Please input your password!",
-                        },
-                      ]}
-                    >
+                    <Form.Item name="password">
                       <Input.Password
                         onChange={handleChange}
                         value={formData.email}
                         size="middle"
                         placeholder="Password"
+                        name="password"
                       />
                     </Form.Item>
                     <Form.Item>

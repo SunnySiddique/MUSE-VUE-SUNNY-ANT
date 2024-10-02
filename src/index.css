@@ -196,5 +196,5 @@ h6 {
 }
 
 :where(.css-dev-only-do-not-override-1qhpsh8).ant-drawer .ant-drawer-body {
-  padding: 0px;
+  padding: 0px !important;
 }

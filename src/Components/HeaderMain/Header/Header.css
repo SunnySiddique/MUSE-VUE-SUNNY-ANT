@@ -69,6 +69,7 @@
 
 .res-icons {
   display: flex;
+  align-items: center;
   gap: 12px;
 }
 
@@ -90,11 +91,11 @@
 
   .main-header {
     flex-direction: column;
-    align-items: start;
+    align-items: center;
   }
   .inputs-main {
     flex-direction: column;
-    align-items: start;
+    align-items: center;
     margin-top: 11px;
   }
 

@@ -3,6 +3,7 @@ import { Badge, Drawer, Input, Popover } from "antd";
 import { useContext, useState } from "react";
 import { AiFillSetting } from "react-icons/ai";
 import { Context } from "../../../App";
+import { useAuthentication } from "../../../context/FirebaseContext";
 import DrawerContent from "../../HeaderMain/Header/Drawer/DrawerContent";
 import PopoverContent from "../../HeaderMain/Header/PopoverContent";
 
@@ -26,7 +27,7 @@ const UserIcon = (
 const ProfileHeader = () => {
   const [open, setOpen] = useState(false);
   const { setDrawerVisible } = useContext(Context);
-
+  const { currentUser } = useAuthentication();
   const showMenu = () => {
     if (window.innerWidth < 768) {
       setDrawerVisible(true);
@@ -70,10 +71,12 @@ const ProfileHeader = () => {
               />
             </div>
             <div className="SignIn-content">
-              <span style={{ color: "#fff" }}>
-                {UserIcon}
-                <p style={{ color: "#fff" }}>Sign in</p>
-              </span>
+              {currentUser && (
+                <span style={{ color: "#fff" }}>
+                  {UserIcon}
+                  <p style={{ color: "#fff" }}>Logged In</p>
+                </span>
+              )}
             </div>
             <div className="three-dot">
               <span onClick={showMenu}>

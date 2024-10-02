@@ -70,6 +70,7 @@ const Header = ({ title, smallTitle }) => {
                 placeholder="Type here..."
               />
             </div>
+
             <div className="res-icons">
               {currentUser && (
                 <div className="avatar">

@@ -6,54 +6,59 @@ import { Context } from "../../../App";
 import DrawerContent from "../../HeaderMain/Header/Drawer/DrawerContent";
 import PopoverContent from "../../HeaderMain/Header/PopoverContent";
 
-
 const UserIcon = (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10ZM12 7C12 8.10457 11.1046 9 10 9C8.89543 9 8 8.10457 8 7C8 5.89543 8.89543 5 10 5C11.1046 5 12 5.89543 12 7ZM9.99993 11C7.98239 11 6.24394 12.195 5.45374 13.9157C6.55403 15.192 8.18265 16 9.99998 16C11.8173 16 13.4459 15.1921 14.5462 13.9158C13.756 12.195 12.0175 11 9.99993 11Z"
-        fill="#fff"
-      ></path>
-    </svg>
-  );
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="#fff"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10ZM12 7C12 8.10457 11.1046 9 10 9C8.89543 9 8 8.10457 8 7C8 5.89543 8.89543 5 10 5C11.1046 5 12 5.89543 12 7ZM9.99993 11C7.98239 11 6.24394 12.195 5.45374 13.9157C6.55403 15.192 8.18265 16 9.99998 16C11.8173 16 13.4459 15.1921 14.5462 13.9158C13.756 12.195 12.0175 11 9.99993 11Z"
+      fill="#fff"
+    ></path>
+  </svg>
+);
 
 const ProfileHeader = () => {
-    const [open, setOpen] = useState(false);
-    const { setDrawerVisible } = useContext(Context);
-  
-  
-    const showMenu = () => {
-      if (window.innerWidth < 768) {
-        setDrawerVisible(true);
-      }
-    };
-  
-    const showDrawer = () => {
-      setOpen(true);
-    };
-    const onClose = () => {
-      setOpen(false);
-    };
-  
-    const [opens, setOpens] = useState(false);
-    const handleOpenChange = (newOpen) => {
-      setOpens(newOpen);
-    };
+  const [open, setOpen] = useState(false);
+  const { setDrawerVisible } = useContext(Context);
+
+  const showMenu = () => {
+    if (window.innerWidth < 768) {
+      setDrawerVisible(true);
+    }
+  };
+
+  const showDrawer = () => {
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
+
+  const [opens, setOpens] = useState(false);
+  const handleOpenChange = (newOpen) => {
+    setOpens(newOpen);
+  };
   return (
     <div>
       <header>
         <div className="main-header">
           <div className="header-content">
-            <span className="frist-content" style={{color: "#fff"}}>Pages</span> <span style={{color: "#fff"}}>/</span>{" "}
-            <span className="second-content" style={{color: "#fff"}}>Profile</span>
-            <p className="three-content" style={{color: "#fff"}}>Profile</p>
+            <span className="frist-content" style={{ color: "#fff" }}>
+              Pages
+            </span>{" "}
+            <span style={{ color: "#fff" }}>/</span>{" "}
+            <span className="second-content" style={{ color: "#fff" }}>
+              Profile
+            </span>
+            <p className="three-content" style={{ color: "#fff" }}>
+              Profile
+            </p>
           </div>
           <div className="inputs-main">
             <div className="inputs">
@@ -65,19 +70,22 @@ const ProfileHeader = () => {
               />
             </div>
             <div className="SignIn-content">
-              <span style={{color: "#fff"}}>
+              <span style={{ color: "#fff" }}>
                 {UserIcon}
-                <p style={{color: "#fff"}}>Sign in</p>
+                <p style={{ color: "#fff" }}>Sign in</p>
               </span>
             </div>
             <div className="three-dot">
               <span onClick={showMenu}>
-                <MenuFoldOutlined style={{color: "#fff"}} />
+                <MenuFoldOutlined style={{ color: "#fff" }} />
               </span>
             </div>
             <div className="Setting-Icon">
               <span onClick={showDrawer}>
-              <AiFillSetting  fill="#fff" style={{width: "20px", height: "18px", cursor: "pointer"}}/>
+                <AiFillSetting
+                  fill="#fff"
+                  style={{ width: "20px", height: "18px", cursor: "pointer" }}
+                />
               </span>
               <Drawer onClose={onClose} open={open}>
                 <DrawerContent />
@@ -97,7 +105,7 @@ const ProfileHeader = () => {
                       width="20"
                       height="20"
                       viewBox="0 0 20 20"
-                      fill="none"
+                      fill="#fff"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
@@ -106,7 +114,7 @@ const ProfileHeader = () => {
                       ></path>
                       <path
                         d="M10 18C8.34315 18 7 16.6569 7 15H13C13 16.6569 11.6569 18 10 18Z"
-                        fill="#111827"
+                        fill="#fff"
                       ></path>
                     </svg>
                   </Badge>

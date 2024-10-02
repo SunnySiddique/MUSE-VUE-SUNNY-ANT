@@ -1,65 +1,97 @@
-import { Alert, Button, Form, Input, Spin } from "antd";
+import { Button, Form, Input, Spin } from "antd";
 import Card from "antd/es/card/Card";
 import "./SignUp.css";
 
-import { updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import GoogleLogo from "../../../assets/popoverImage/Google__G__Logo.webp";
 import AppleLogo from "../../../assets/popoverImage/logo-apple.svg";
 import FacebookLogo from "../../../assets/popoverImage/logos-facebook.svg";
-import { firebaseAuth, useFirebase } from "../../../context/Firebase";
-
+import { useAuthentication } from "../../../context/FirebaseContext";
+import { isStrongPassword, isValidEmail } from "../../Validation";
 
 const SignIn = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showAlert, setShowAlert] = useState(false);
-
-  const [loading, setLoading] = useState(false);
-
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const {
+    signUpUserWithEmailAndPassword,
+    signInWithGoogle,
+    currentUser,
+    displayName,
+    setDisplayName,
+  } = useAuthentication();
   const navigate = useNavigate();
 
-  const firebase = useFirebase();
   const onFinish = async () => {
+    const emptyFields = [];
+    if (!displayName) emptyFields.push("Name");
+    if (!formData.email) emptyFields.push("Email");
+    if (!formData.password) emptyFields.push("Password");
+    if (!formData.confirmPassword) emptyFields.push("Confirm Password");
+
+    // Show error message for empty fields
+    if (emptyFields.length > 0) {
+      const errorMessage = `Please fill in the following fields: ${emptyFields.join(
+        ", "
+      )}`;
+      toast.error(errorMessage);
+      return; // Stop further execution if there are empty fields
+    }
+
+    // Validate email
+    const emailError = isValidEmail(formData.email);
+    if (emailError) {
+      toast.error(emailError); // Show specific email error
+      return; // Stop further execution if there's an email error
+    }
+
+    // Validate password
+    const passwordError = isStrongPassword(formData.password);
+    if (passwordError) {
+      toast.error(passwordError); // Show specific password error
+      return; // Stop further execution if there's a password error
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      return toast.error("Passwords do not match");
+    }
+
     try {
-      setLoading(true);
-      await firebase.SignUp(email, password);
-      await updateProfile(firebaseAuth.currentUser, {
-        displayName: name,
-        photoURL: null,
-      });
-      setLoading(false);
+      setIsLoading(true);
+      await signUpUserWithEmailAndPassword(
+        formData.email,
+        formData.password,
+        displayName
+      );
     } catch (error) {
-      setShowAlert(true);
-      setTimeout(() => {
-        setShowAlert(false);
-      }, 50000);
-      setLoading(false);
+      console.log(error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const signGoole = async () => {
-    await firebase.SignupWithGoogle();
+  const SignWithGoogle = async () => {
+    await signInWithGoogle();
   };
-
-  // const handleSignUp = async () => {
-
-  // };
 
   useEffect(() => {
-    if (firebase.LogedIn) {
+    if (currentUser) {
       navigate("/home");
     }
-  }, [firebase, navigate]);
+  }, [currentUser, navigate]);
 
   return (
-    <Spin size="large" spinning={loading}>
+    <Spin size="large" spinning={isLoading}>
       <main className="bg-img">
         <section>
           <div className="sign-main">
@@ -85,22 +117,11 @@ const SignIn = () => {
                   <Button className="logo-button">
                     <img width={20} src={AppleLogo} alt="" />
                   </Button>
-                  <Button className="logo-button" onClick={signGoole}>
+                  <Button className="logo-button" onClick={SignWithGoogle}>
                     <img width={20} src={GoogleLogo} alt="" />
                   </Button>
                 </div>
                 <span className="or">Or</span>
-
-                <div className="error" style={{ margin: "20px 0" }}>
-                  {showAlert && ( // Show the alert only when showAlert is true
-                    <Alert
-                      type="error"
-                      message={firebase.err}
-                      onClose={() => setShowAlert(false)} // Close the alert when onClose event occurs
-                      closable
-                    />
-                  )}
-                </div>
 
                 <div className="inputs">
                   <Form
@@ -109,54 +130,41 @@ const SignIn = () => {
                       remember: true,
                     }}
                     onFinish={onFinish}
-                    onFinishFailed={onFinishFailed}
                   >
-                    <Form.Item
-                      name="name"
-                      rules={[
-                        {
-                          required: true,
-                          message: "Please input your username!",
-                        },
-                      ]}
-                    >
+                    <Form.Item name="name">
                       <Input
-                        onChange={(e) => setName(e.target.value)}
-                        value={name}
+                        onChange={(e) => setDisplayName(e.target.value)}
+                        value={displayName}
                         size="middle"
                         placeholder="Name"
+                        name="name"
                       />
                     </Form.Item>
-                    <Form.Item
-                      name="email"
-                      rules={[
-                        {
-                          required: true,
-                          message: "Please input your email!",
-                        },
-                      ]}
-                    >
+                    <Form.Item name="email">
                       <Input
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
+                        onChange={handleChange}
+                        value={formData.email}
                         size="middle"
                         placeholder="Email"
+                        name="email"
                       />
                     </Form.Item>
-                    <Form.Item
-                      name="password"
-                      rules={[
-                        {
-                          required: true,
-                          message: "Please input your password!",
-                        },
-                      ]}
-                    >
+                    <Form.Item name="password">
                       <Input.Password
-                        onChange={(e) => setPassword(e.target.value)}
-                        value={password}
+                        onChange={handleChange}
+                        value={formData.password}
                         size="middle"
                         placeholder="Password"
+                        name="password"
+                      />
+                    </Form.Item>
+                    <Form.Item name="confirmPassword">
+                      <Input.Password
+                        onChange={handleChange}
+                        value={formData.confirmPassword}
+                        size="middle"
+                        placeholder="Password"
+                        name="confirmPassword"
                       />
                     </Form.Item>
                     <Form.Item>

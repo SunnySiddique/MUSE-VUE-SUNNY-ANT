@@ -1,10 +1,10 @@
 import { Navigate } from "react-router-dom";
-import { useFirebase } from "../../../context/Firebase";
+import { useAuthentication } from "../../../context/FirebaseContext";
 
 const Protected = ({ children }) => {
-  const firebase = useFirebase();
+  const { currentUser } = useAuthentication();
 
-  if (!firebase.user) {
+  if (!currentUser) {
     return <Navigate to="/" />;
   }
 

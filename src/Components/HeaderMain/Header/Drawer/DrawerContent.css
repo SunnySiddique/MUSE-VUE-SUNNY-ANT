@@ -249,3 +249,7 @@
   border-color: #40a9ff;
   cursor: pointer;
 }
+
+.ant-drawer-close {
+  margin: 0;
+}

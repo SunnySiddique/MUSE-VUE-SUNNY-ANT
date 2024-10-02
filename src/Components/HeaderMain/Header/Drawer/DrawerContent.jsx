@@ -5,7 +5,7 @@ import "./DrawerContent.css";
 const DrawerContent = () => {
   return (
     <>
-      <div className="drawer-main">
+      <div className="drawer-main" style={{ padding: "24px" }}>
         <div className="drawer-content">
           <h6>Configurator</h6>
           <p>See our dashboard options.</p>

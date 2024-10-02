@@ -3,13 +3,16 @@ import ProfileHeader from "../ProfileHeader/ProfileHeader";
 import "./Profile.css";
 
 import ProfileImage from "../../../assets/popoverImage/face-1.jpg";
+import Header from "../../HeaderMain/Header/Header";
 import PlatFormSetting from "../PlatFormSettting/PlatFormSetting";
 import ProfileProject from "../ProfileProject/ProfileProject";
 
 const Profile = () => {
   return (
     <>
-      <div className="profile-main">
+      <Header title="Profile" smallTitle="Profile" />
+
+      <div className="profile-main" style={{ marginTop: "15px" }}>
         <ProfileHeader />
       </div>
       <div className="profile-card">
@@ -52,7 +55,7 @@ const Profile = () => {
         </div>
       </div>
       <main>
-        <section style={{marginTop: "80px"}}>
+        <section style={{ marginTop: "80px" }}>
           <div className="platform-setting">
             <PlatFormSetting />
           </div>

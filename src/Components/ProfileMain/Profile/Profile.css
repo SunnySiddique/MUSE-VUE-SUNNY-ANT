@@ -57,6 +57,10 @@
   margin-bottom: 36px;
 }
 
+.ant-drawer-close {
+  margin: 0 auto;
+}
+
 @media (max-width: 768px) {
   .profile-img {
     margin-bottom: 20px;

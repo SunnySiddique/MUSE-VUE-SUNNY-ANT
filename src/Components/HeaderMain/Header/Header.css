@@ -56,9 +56,59 @@
   display: none;
 }
 
+.avatar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.res-icons {
+  display: flex;
+  gap: 12px;
+}
+
 @media (max-width: 768px) {
   .three-dot {
     display: block;
+  }
+
+  .res-menu {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .main-header {
+    flex-direction: column;
+    align-items: start;
+  }
+  .inputs-main {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .inputs {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .res-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .three-dot svg {
+    width: 40px;
+    height: 30px;
   }
 }
 

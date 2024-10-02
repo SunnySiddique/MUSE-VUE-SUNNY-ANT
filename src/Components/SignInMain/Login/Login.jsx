@@ -1,53 +1,92 @@
-import { Alert, Button, Form, Input, Spin } from "antd";
+import { Button, Form, Input, Spin } from "antd";
 import Card from "antd/es/card/Card";
 import "../SignUp/SignUp.css";
 
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import GoogleLogo from "../../../assets/popoverImage/Google__G__Logo.webp";
 import AppleLogo from "../../../assets/popoverImage/logo-apple.svg";
 import FacebookLogo from "../../../assets/popoverImage/logos-facebook.svg";
-import { useFirebase } from "../../../context/Firebase";
+import { useAuthentication } from "../../../context/FirebaseContext";
+import { isValidEmail } from "../../Validation";
+
 const LogIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showAlert, setShowAlert] = useState(false); // State to control alert visibility
-  const [loading, setLoading] = useState(false);
-
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-
-  const firebase = useFirebase();
+  const { loginInUserWithEmailAndPassword, signInWithGoogle, currentUser } =
+    useAuthentication();
 
   const onFinish = async () => {
+    const emptyFields = [];
+    if (!formData.email) emptyFields.push("Email");
+    if (!formData.password) emptyFields.push("Password");
+    if (!formData.confirmPassword) emptyFields.push("Confirm Password");
+
+    // Show error message for empty fields
+    if (emptyFields.length > 0) {
+      const errorMessage = `Please fill in the following fields: ${emptyFields.join(
+        ", "
+      )}`;
+      toast.error(errorMessage);
+      return; // Stop further execution if there are empty fields
+    }
+
+    // Validate email
+    const emailError = isValidEmail(formData.email);
+    if (emailError) {
+      toast.error(emailError); // Show specific email error
+      return; // Stop further execution if there's an email error
+    }
+
     try {
-      setLoading(true);
-      await firebase.LogInPage(email, password);
-      setLoading(false);
-      setShowAlert(true);
+      setIsLoading(true);
+      await loginInUserWithEmailAndPassword(formData.email, formData.password);
+
+      toast.success(
+        "Successfully logged in! Enjoy your experience and check out your profile."
+      );
     } catch (error) {
-      setTimeout(() => {
-        setShowAlert(false);
-      }, 5000);
-      setLoading(false);
+      console.log(error);
+      if (error.code === "auth/invalid-credential") {
+        toast.error(
+          "Please check your email format and ensure your password is correct."
+        );
+      } else if (error.code === "auth/user-not-found") {
+        toast.error(
+          "No user found with this email. Please check the email you entered."
+        );
+      } else if (error.code === "auth/wrong-password") {
+        toast.error("Incorrect password. Please try again.");
+      } else {
+        toast.error("Error logging in: " + error.message);
+      }
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const GooleWithLogn = async () => {
-    try {
-      await firebase.SignupWithGoogle();
-    } catch (error) {
-      console.log(error);
-    }
+  const SignWithGoogle = async () => {
+    await signInWithGoogle();
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
   useEffect(() => {
-    if (firebase.LogedIn) {
+    if (currentUser) {
       navigate("/home");
     }
-  }, [firebase, navigate]);
-
+  }, [currentUser, navigate]); // Add the dependencies
   return (
-    <Spin size="large" spinning={loading} className="spin">
+    <Spin size="large" spinning={isLoading} className="spin">
       <main className="bg-img">
         <section>
           <div className="sign-main">
@@ -70,22 +109,12 @@ const LogIn = () => {
                   <Button className="logo-button">
                     <img width={20} src={AppleLogo} alt="" />
                   </Button>
-                  <Button className="logo-button" onClick={GooleWithLogn}>
+                  <Button className="logo-button" onClick={SignWithGoogle}>
                     <img width={20} src={GoogleLogo} alt="" />
                   </Button>
                 </div>
                 <span className="or">Or</span>
 
-                <div className="error" style={{ margin: "20px 0" }}>
-                  {showAlert && (
-                    <Alert
-                      type="error"
-                      message={firebase.err}
-                      onClose={() => setShowAlert(false)} // Close the alert when onClose event occurs
-                      closable
-                    />
-                  )}
-                </div>
                 <div className="inputs">
                   <Form
                     name="basic"
@@ -104,10 +133,11 @@ const LogIn = () => {
                       ]}
                     >
                       <Input
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
+                        onChange={handleChange}
+                        value={formData.email}
                         size="middle"
                         placeholder="Email"
+                        name="email"
                       />
                     </Form.Item>
                     <Form.Item
@@ -120,8 +150,8 @@ const LogIn = () => {
                       ]}
                     >
                       <Input.Password
-                        onChange={(e) => setPassword(e.target.value)}
-                        value={password}
+                        onChange={handleChange}
+                        value={formData.email}
                         size="middle"
                         placeholder="Password"
                       />

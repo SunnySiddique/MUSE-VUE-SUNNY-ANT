@@ -183,7 +183,6 @@ const SideMenu = () => {
   return (
     <>
       <Layout style={{ minHeight: "100vh" }}>
-        <span>{/* <HomeFilled /> */}</span>
         <Sider
           breakpoint="sm"
           className="sidemenu"

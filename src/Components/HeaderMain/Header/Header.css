@@ -64,7 +64,6 @@
 
 .header-icons {
   display: flex;
-  align-items: center;
   gap: 8px;
 }
 
@@ -73,7 +72,11 @@
   gap: 12px;
 }
 
-@media (max-width: 768px) {
+:where(.css-dev-only-do-not-override-1qhpsh8).ant-input-affix-wrapper {
+  padding: 10px;
+}
+
+@media (max-width: 992px) {
   .three-dot {
     display: block;
   }
@@ -92,6 +95,7 @@
   .inputs-main {
     flex-direction: column;
     align-items: start;
+    margin-top: 11px;
   }
 
   .inputs {

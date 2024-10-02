@@ -162,10 +162,6 @@ h6 {
   width: 25% !important;
 }
 
-.ant-body {
-  padding: 0px !important;
-}
-
 :where(
     .css-dev-only-do-not-override-1qhpsh8
   ).ant-menu-light.ant-menu-root.ant-menu-inline,
@@ -179,11 +175,15 @@ h6 {
   border-inline-end: none !important;
 }
 
-:where(.css-1qhpsh8).ant-drawer .ant-drawer-body {
-  padding: 0px !important;
+.ant-drawer-body {
+  padding: 0 !important;
 }
 
-@media (max-width: 768px) {
+.ant-drawer-content-wrapper {
+  box-shadow: none !important;
+}
+
+@media (max-width: 992px) {
   .sidemenu {
     display: none;
   }

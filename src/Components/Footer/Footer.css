@@ -41,7 +41,7 @@ footer {
     padding: 0px;
   }
   .creative-content {
-    flex-wrap: wrap;
+    flex-direction: column;
     text-align: center;
     margin: 0 auto;
     justify-content: center;

@@ -1,12 +1,50 @@
 import { Button, Card, Col, Divider, Row } from "antd";
-import MasterCard from "../../../assets/popoverImage/mastercard-logo.webp";
-import PaypalImage from "../../../assets/popoverImage/paypal-logo-2.webp";
+import VisaImage from "../../../assets/popoverImage/mastercard-logo.webp";
+import PaypalImages from "../../../assets/popoverImage/paypal-logo-2.webp";
 import "./WifySection.css";
 
-import PaypalImages from "../../../assets/popoverImage/mastercard-logo.webp";
-import VisaImage from '../../../assets/popoverImage/visa-logo.webp';
+import { useState } from "react";
+import ModalCard from "../../Modal";
 
 const WifySection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingCard, setEditingCard] = useState(null); // For tracking the card being edited
+  const [cards, setCards] = useState([
+    {
+      image: VisaImage,
+      cardNumber: "**** **** **** 7362",
+    },
+    {
+      image: VisaImage,
+      cardNumber: "**** **** **** 3288",
+    },
+  ]);
+
+  const showModal = (card = null) => {
+    setEditingCard(card); // If card is null, it's for adding a new card, otherwise for editing
+    setIsModalOpen(true);
+  };
+
+  const handleOk = (updatedCard) => {
+    if (editingCard) {
+      // Update the card
+      setCards(
+        cards.map((card) =>
+          card === editingCard ? { ...card, ...updatedCard } : card
+        )
+      );
+    } else {
+      // Add a new card
+      setCards([...cards, updatedCard]);
+    }
+    setIsModalOpen(false);
+    setEditingCard(null);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+    setEditingCard(null); // Reset on cancel
+  };
   return (
     <>
       <Row gutter={[12, 12]}>
@@ -19,7 +57,6 @@ const WifySection = () => {
           xs={24}
           sm={24}
         >
-
           <Row gutter={[12, 12]}>
             <Col
               className="gutter-row"
@@ -102,7 +139,7 @@ const WifySection = () => {
                       </div>
                     </div>
                     <div className="wify-footer-img">
-                      <img src={MasterCard} alt="" />
+                      <img src={VisaImage} alt="" />
                     </div>
                   </div>
                 </div>
@@ -191,7 +228,7 @@ const WifySection = () => {
                   <div className="second-salary-main">
                     <div className="salary-icon">
                       <span>
-                        <img width={30} src={PaypalImage} alt="" />
+                        <img width={30} src={PaypalImages} alt="" />
                       </span>
                     </div>
                     <div className="salary-title">
@@ -208,118 +245,79 @@ const WifySection = () => {
             </Col>
           </Row>
 
-
-          <Row gutter={[12, 12]} style={{marginTop: "35px"}}>
-          <Col
-            className="gutter-row"
-            xxl={24}
-            xl={24}
-            lg={24}
-            md={24}
-            sm={24}
-            xs={24}
-          >
-            <Card className="box-shadow" style={{ padding: "24px" }}>
-              <div className="Payment-main">
-                <div className="payment-title">
-                  <h6>Payment Methods</h6>
+          <Row gutter={[12, 12]} style={{ marginTop: "35px" }}>
+            <Col
+              className="gutter-row"
+              xxl={24}
+              xl={24}
+              lg={24}
+              md={24}
+              sm={24}
+              xs={24}
+            >
+              <Card className="box-shadow" style={{ padding: "24px" }}>
+                <div className="Payment-main">
+                  <div className="payment-title">
+                    <h6>Payment Methods</h6>
+                  </div>
+                  <div className="payment-button">
+                    <button onClick={() => showModal()}>ADD NEW CARD</button>
+                  </div>
                 </div>
-                <div className="payment-button">
-                  <button>ADD NEW CARD</button>
-                </div>
-              </div>
-              <Row gutter={[12, 12]}>
-                <Col
-                  className="gutter-row"
-                  xxl={12}
-                  xl={12}
-                  lg={12}
-                  md={24}
-                  sm={24}
-                  xs={24}
-                >
-                  <Card style={{ padding: "24px" }}>
-                    <div className="main-master-logo">
-                      <div className="master-logo">
-                        <img width={40} src={PaypalImages} alt="" />
-                      </div>
-                      <div className="master-content">
-                        <h4>**** **** **** 7362</h4>
-                      </div>
-                      <div className="mastr-icon">
-                        <span>
-                          <svg
-                            width="20"
-                            height="20"
-                            viewBox="0 0 20 20"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M13.5858 3.58579C14.3668 2.80474 15.6332 2.80474 16.4142 3.58579C17.1953 4.36683 17.1953 5.63316 16.4142 6.41421L15.6213 7.20711L12.7929 4.37868L13.5858 3.58579Z"
-                              className="fill-gray-7"
-                              fill="#8c8c8c"
-                            ></path>
-                            <path
-                              d="M11.3787 5.79289L3 14.1716V17H5.82842L14.2071 8.62132L11.3787 5.79289Z"
-                              className="fill-gray-7"
-                              fill="#8c8c8c"
-                            ></path>
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-                  </Card>
-                </Col>
-                <Col
-                  className="gutter-row"
-                  xxl={12}
-                  xl={12}
-                  lg={12}
-                  md={24}
-                  sm={24}
-                  xs={24}
-                >
-                  <Card style={{ padding: "24px" }}>
-                    <div className="main-master-logo">
-                      <div className="master-logo">
-                        <img width={40} src={VisaImage} alt="" />
-                      </div>
-                      <div className="master-content">
-                        <h4>**** **** **** 3288</h4>
-                      </div>
-                      <div className="master-icon">
-                        <span style={{ cursor: "pointer" }}>
-                          <svg
-                            width="20"
-                            height="20"
-                            viewBox="0 0 20 20"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M13.5858 3.58579C14.3668 2.80474 15.6332 2.80474 16.4142 3.58579C17.1953 4.36683 17.1953 5.63316 16.4142 6.41421L15.6213 7.20711L12.7929 4.37868L13.5858 3.58579Z"
-                              className="fill-gray-7"
-                              fill="#8c8c8c"
-                            ></path>
-                            <path
-                              d="M11.3787 5.79289L3 14.1716V17H5.82842L14.2071 8.62132L11.3787 5.79289Z"
-                              className="fill-gray-7"
-                              fill="#8c8c8c"
-                            ></path>
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-                  </Card>
-                </Col>
-              </Row>
-            </Card>
-          </Col>
-        </Row>
+                <Row gutter={[12, 12]}>
+                  {cards.map((card, index) => (
+                    <Col
+                      className="gutter-row"
+                      xxl={12}
+                      xl={12}
+                      lg={12}
+                      md={24}
+                      sm={24}
+                      xs={24}
+                      key={index}
+                    >
+                      <Card style={{ padding: "24px" }}>
+                        <div className="main-master-logo">
+                          <div className="master-logo">
+                            <img width={40} src={card.image} alt="" />
+                          </div>
+                          <div className="master-content">
+                            <h4>{card.cardNumber}</h4>
+                          </div>
+                          <div className="mastr-icon">
+                            <span
+                              style={{ cursor: "pointer" }}
+                              onClick={() => showModal(card)} // Open modal for editing the card
+                            >
+                              <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 20 20"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M13.5858 3.58579C14.3668 2.80474 15.6332 2.80474 16.4142 3.58579C17.1953 4.36683 17.1953 5.63316 16.4142 6.41421L15.6213 7.20711L12.7929 4.37868L13.5858 3.58579Z"
+                                  className="fill-gray-7"
+                                  fill="#8c8c8c"
+                                ></path>
+                                <path
+                                  d="M11.3787 5.79289L3 14.1716V17H5.82842L14.2071 8.62132L11.3787 5.79289Z"
+                                  className="fill-gray-7"
+                                  fill="#8c8c8c"
+                                ></path>
+                              </svg>
+                            </span>
+                          </div>
+                        </div>
+                      </Card>
+                    </Col>
+                  ))}
+                </Row>
+              </Card>
+            </Col>
+          </Row>
         </Col>
-
-
 
         <Col
           className="gutter-row"
@@ -547,8 +545,14 @@ const WifySection = () => {
             </div>
           </Card>
         </Col>
-        
       </Row>
+
+      <ModalCard
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        card={editingCard} // Pass the card to edit if it's an edit action
+      />
     </>
   );
 };

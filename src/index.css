@@ -162,17 +162,13 @@ h6 {
   width: 25% !important;
 }
 
-:where(
-    .css-dev-only-do-not-override-1qhpsh8
-  ).ant-menu-light.ant-menu-root.ant-menu-inline,
-:where(.css-dev-only-do-not-override-1qhpsh8).ant-menu-light
-  > .ant-menu.ant-menu-root.ant-menu-inline,
-:where(
-    .css-dev-only-do-not-override-1qhpsh8
-  ).ant-menu-light.ant-menu-root.ant-menu-vertical,
-:where(.css-dev-only-do-not-override-1qhpsh8).ant-menu-light
+:where(.css-1qhpsh8).ant-menu-light.ant-menu-root.ant-menu-inline,
+:where(.css-1qhpsh8).ant-menu-light > .ant-menu.ant-menu-root.ant-menu-inline,
+:where(.css-1qhpsh8).ant-menu-light.ant-menu-root.ant-menu-vertical,
+:where(.css-1qhpsh8).ant-menu-light
   > .ant-menu.ant-menu-root.ant-menu-vertical {
   border-inline-end: none !important;
+  border: none !important;
 }
 
 .ant-drawer-body {
@@ -196,5 +192,10 @@ h6 {
   .three-dot {
     display: block;
     cursor: pointer;
+  }
+
+  .ant-menu-light .ant-menu-item-selected {
+    background: transparent !important;
+    box-shadow: none !important;
   }
 }
